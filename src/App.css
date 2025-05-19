@@ -1,8 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+@font-face {
+  font-family: 'Mazut SP';
+  src: url('./assets/fonts/MazutSP-Demo.otf') format('opentype');
+  font-weight: normal; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NewCustomFont';
+  src: url('./assets/fonts/шрифт 1_0.otf') format('opentype');
+  font-weight: normal; 
+  font-style: normal;
+}
+
+/* Add smooth scrolling to html */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed navbar height */
+}
+
+/* Particles container - only keep the container */
+#particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 25; /* Above most elements but below interactive UI */
+  overflow: hidden;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Modern Navbar Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lightning-icon {
+  font-size: 28px;
+  color: #ff8c00;
+  filter: drop-shadow(0 0 5px rgba(255, 140, 0, 0.6));
+  animation: gentleOrangePulse 2s infinite alternate ease-in-out;
+}
+
+.logo-text {
+  display: flex;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff8c00;
+  letter-spacing: 0.5px;
+}
+
+.logo-letter {
+  display: inline-block;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.logo-text:hover .logo-letter {
+  animation: none; /* Stop any existing animation when hovering */
+}
+
+.logo-text:hover .logo-letter:nth-child(1) { animation: shimmer 1.5s infinite 0.0s; }
+.logo-text:hover .logo-letter:nth-child(2) { animation: shimmer 1.5s infinite 0.1s; }
+.logo-text:hover .logo-letter:nth-child(3) { animation: shimmer 1.5s infinite 0.2s; }
+.logo-text:hover .logo-letter:nth-child(4) { animation: shimmer 1.5s infinite 0.3s; }
+.logo-text:hover .logo-letter:nth-child(5) { animation: shimmer 1.5s infinite 0.4s; }
+.logo-text:hover .logo-letter:nth-child(6) { animation: shimmer 1.5s infinite 0.5s; }
+.logo-text:hover .logo-letter:nth-child(7) { animation: shimmer 1.5s infinite 0.6s; }
+.logo-text:hover .logo-letter:nth-child(8) { animation: shimmer 1.5s infinite 0.7s; }
+.logo-text:hover .logo-letter:nth-child(9) { animation: shimmer 1.5s infinite 0.8s; }
+
+@keyframes shimmer {
+  0% {
+    color: #ff8c00;
+    text-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+  }
+  20% {
+    color: #ffb700;
+    text-shadow: 0 0 10px rgba(255, 183, 0, 0.8), 0 0 20px rgba(255, 183, 0, 0.5);
+  }
+  40% {
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.5);
+  }
+  60% {
+    color: #ffea00;
+    text-shadow: 0 0 15px rgba(255, 234, 0, 0.8), 0 0 25px rgba(255, 234, 0, 0.5);
+  }
+  80% {
+    color: #ff8c00;
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.5);
+  }
+  100% {
+    color: #ff8c00;
+    text-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+  }
+}
+
+.navbar-logo img {
+  height: 35px;
+  border-radius: 8px;
+}
+
+.navbar-logo span {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff8c00;
+  letter-spacing: 0.5px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 40px;
+  font-size: 16px;
+  color: white;
+}
+
+.navbar-links span {
+  cursor: pointer;
+  padding: 5px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-links span:hover {
+  color: #ff8c00;
+}
+
+.navbar-links span:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff8c00;
+  transition: width 0.3s ease;
+}
+
+.navbar-links span:hover:after {
+  width: 100%;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.navbar-action .try-button {
+  background-color: #ff8c00;
+  color: #0d0d0d;
+  border: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
+}
+
+.navbar-action .try-button:hover {
+  background-color: #ffa500;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
 }
 
 .logo {
@@ -42,59 +254,125 @@
 }
 
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .App-header {
-  background-color: #0d0d0d; /* Фон хедера такой же, как у body */
+  background-color: #ffffff;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 20px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  /* Add top padding to account for the fixed navbar */
+  padding-top: 70px;
 }
 
-.App-header h1 {
-  font-size: 3.8rem; /* Немного увеличим для акцента */
-  margin-bottom: 25px;
+/* Container for the main brand title */
+.main-brand-title-container {
+  position: absolute;
+  top: 22vh; /* Was 15vh, NOW 22vh */
+  left: 0;
+  right: 0;
+  z-index: 0; /* Behind lightning (z-index: 1) */
+  width: 100%;
+}
+
+/* Main Brand Title - "ChargeTap" */
+.main-brand-title {
+  font-family: sans-serif; /* Simpler font */
+  font-size: 11vw; /* Reduced font size */
+  font-weight: bold; /* Standard bold for sans-serif */
+  color: #ff8c00; 
+  opacity: 0.7; 
+  text-shadow: /* Orange shadows */
+    0 0 5px rgba(255, 140, 0, 0.5),
+    0 0 10px rgba(255, 140, 0, 0.4),
+    0 0 18px rgba(255, 140, 0, 0.3),
+    0 0 30px rgba(255, 140, 0, 0.2);
+  animation: fadeIn 1s ease-out forwards, gentleOrangePulse 2s infinite alternate ease-in-out;
+  padding: 0;
+  line-height: 1;
+  display: flex; 
+  justify-content: center; /* Centers the text content within the h1 */
+  width: 100%; /* Ensures h1 fills the container for proper centering by container's potential flex */
+}
+
+@keyframes gentleOrangePulse {
+  0% {
+    opacity: 0.6;
+    text-shadow:
+      0 0 4px rgba(255, 165, 0, 0.4),
+      0 0 8px rgba(255, 165, 0, 0.3),
+      0 0 15px rgba(255, 140, 0, 0.2);
+  }
+  100% {
+    opacity: 0.8;
+    text-shadow:
+      0 0 6px rgba(255, 165, 0, 0.6),
+      0 0 12px rgba(255, 165, 0, 0.5),
+      0 0 22px rgba(255, 140, 0, 0.4);
+  }
+}
+
+/* Tagline - "Заряджай гаджети одним дотиком кільця!" */
+.tagline {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 20px;
   font-weight: bold;
-  color: #ff8c00; /* Яркий оранжевый */
-  animation: fadeIn 1s ease-out forwards;
-  opacity: 0;
-}
-
-.App-header p {
-  font-size: 1.6rem; /* Немного увеличим */
-  margin-bottom: 35px;
-  max-width: 650px;
-  color: #f0f0f0; /* Белый/очень светло-серый для контраста с оранжевым */
+  color: #ff8c00; 
   animation: fadeIn 1s ease-out 0.5s forwards;
   opacity: 0;
+  position: relative; 
+  z-index: 4;
+  text-align: center;
+  max-width: 800px;
+}
+
+/* Subtitle Text - "Забудь про дроти..." */
+.subtitle-text {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  max-width: 700px;
+  color: #f0f0f0; 
+  animation: fadeIn 1s ease-out 1s forwards; 
+  opacity: 0;
+  position: relative;
+  z-index: 4;
+  text-align: center;
 }
 
 .App-header button {
-  background-color: #ff8c00; /* Оранжевый фон */
-  color: #0d0d0d; /* Черный текст на кнопке */
+  background-color: #ff8c00; 
+  color: #0d0d0d; 
   border: none;
-  padding: 18px 35px; /* Немного увеличим кнопку */
-  font-size: 1.3rem;
+  padding: 15px 30px;
+  font-size: 1.2rem;
   font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInScaleIn 1s ease-out 1s forwards;
+  animation: fadeInScaleIn 1s ease-out 1.5s forwards; 
   opacity: 0;
   transform: scale(0.5);
-  box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Оранжевое свечение */
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); 
+  position: relative;
+  z-index: 4;
+  margin-top: 30px;
 }
 
 .App-header button:hover {
-  background-color: #ffa500; /* Более светлый оранжевый при наведении */
+  background-color: #ffa500;
   color: #000000;
-  transform: scale(1.08); /* Увеличим эффект при наведении */
+  transform: scale(1.08);
   box-shadow: 0 0 25px rgba(255, 165, 0, 0.7);
 }
 
@@ -137,70 +415,819 @@
 }
 
 .floating-nfc-device {
-  position: absolute;
-  top: 28%; /* Чуть выше поднимем */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 180px; /* Немного увеличим устройство */
-  height: auto;
-  opacity: 0.6; /* Можно чуть уменьшить, если фон темный */
-  z-index: 1; /* ПОВЫСИЛИ: было 0, теперь плавающее устройство над молниями */
-  animation: floatAnimation 6s ease-in-out infinite;
+  /* position: relative; */ /* No longer needed as element is removed, but keeping class just in case */
+  /* width: 130px; */
+  /* height: auto; */
+  /* opacity: 0.9; */ 
+  /* z-index: 2; */ /* Adjusted to 3 in JSX inline style previously, now element removed */
+  /* animation: floatAnimation 6s ease-in-out infinite; */ /* Animation removed */
+  /* margin-bottom: -100px; */ /* This was the original, might need to ensure no layout shift */
 }
 
-.App-header h1,
-.App-header p,
-.App-header button {
-  position: relative; /* Чтобы z-index сработал правильно и текст был поверх картинки */
-  z-index: 2; /* ПОВЫСИЛИ: было 1, текст и кнопка над плавающим устройством */
-}
-
-/* Анимация "плавания" */
-@keyframes floatAnimation {
+/* Анимация "плавания" - Can be removed */
+/* @keyframes floatAnimation {
   0% {
     transform: translate(-50%, -50%) translateY(0px);
   }
   50% {
-    transform: translate(-50%, -50%) translateY(-20px); /* Движение вверх */
+    transform: translate(-50%, -50%) translateY(-20px);
   }
   100% {
     transform: translate(-50%, -50%) translateY(0px);
   }
-}
+} */
 
 /* Новые стили для контейнера SVG-молнии */
 .svg-lightning-bolt-container {
   position: absolute;
-  opacity: 0; 
-  z-index: 0; 
-  width: 150px; /* Reverted to 150px base width */
-  height: auto;   /* Reverted to auto height */
+  /* opacity: 0; */ /* Opacity will be controlled by animation on child */
+  z-index: 1;
+  /* width and height are set by the SVG itself via scale, or can be explicit if needed */
+  /* For example: width: 150px; height: auto; */
+  /* transform-origin for scale/rotate if applied here */
+  transform-origin: top center; 
 }
 
 .lightning-svg-itself {
   width: 100%;  
   height: 100%; 
   display: block;
-  filter: 
-    brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(5000%) hue-rotate(350deg) /* Original orange color */
-    drop-shadow(0 0 5px #ff8c00) /* Neon glow 1 */
-    drop-shadow(0 0 10px #ff8c00) /* Neon glow 2 */
-    drop-shadow(0 0 15px #ff8c00); /* Neon glow 3 */
-  animation: shakeAnimation 0.15s infinite; /* Added shake animation */
+  /* Base style for dark lightning on white background */
+  filter: grayscale(1) brightness(0.15); /* Make it very dark grey/black */
+  opacity: 0; /* Initial opacity, animation will change it */
+  /* The animation will handle opacity, glow, and shake */
+  animation: lightningFlash 2.5s linear infinite;
 }
 
-/* Анимация lightningFlash для SVG (контролирует только opacity) */
+/* Restored old lightningFlash and adapted for glow on flash */
 @keyframes lightningFlash {
-  0% { opacity: 0; }
-  4% { opacity: 0.7; } 
-  12% { opacity: 0.7; } 
-  20%, 100% { opacity: 0; }
+  0%, 21%, 100% { /* Off states and reset transform for the image itself */
+    opacity: 0;
+    filter: grayscale(1) brightness(0.15); 
+    transform: translate(0, 0); /* Reset shake */
+  }
+  1% { /* Start of flash & slight shake */
+    opacity: 0.85; 
+    filter: grayscale(0) brightness(1.2) drop-shadow(0 0 7px rgba(200, 220, 255, 0.85)) drop-shadow(0 0 12px rgba(180, 200, 255, 0.7));
+    transform: translate(1px, -1px); /* Slight shake, rotate removed from here */
+  } 
+  10% { /* Mid-flash, different slight shake */
+    opacity: 0.85;
+    filter: grayscale(0) brightness(1.2) drop-shadow(0 0 7px rgba(200, 220, 255, 0.85)) drop-shadow(0 0 12px rgba(180, 200, 255, 0.7));
+    transform: translate(-1px, 1px); /* Slight shake other way, rotate removed */
+  }
+  20% { /* End of flash, reset shake slightly before opacity drops */
+    opacity: 0.85;
+    filter: grayscale(0) brightness(1.2) drop-shadow(0 0 7px rgba(200, 220, 255, 0.85)) drop-shadow(0 0 12px rgba(180, 200, 255, 0.7));
+    transform: translate(0px, 0px); /* Reset shake */
+  }
 }
 
-/* New shake animation */
-@keyframes shakeAnimation {
+/* New shake animation - can be added back later if desired, perhaps only during flash */
+/* @keyframes shakeAnimation {
   0%, 100% { transform: translate(0, 0) rotate(0); }
   25% { transform: translate(1px, -1px) rotate(-0.2deg); }
   50% { transform: translate(-1px, 1px) rotate(0.2deg); }
   75% { transform: translate(-1px, -1px) rotate(-0.2deg); }
+} */
+
+/* Tagline, Subtitle, Button - ensure they are above */
+.tagline, .subtitle-text, .App-header button {
+  position: relative; 
+  z-index: 4;
+}
+
+/* --- Hanging Sign Styles --- */
+
+.hanging-sign-assembly {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -150px;
+  margin-bottom: 40px;
+  z-index: 3;
+  animation: swayAnimation 6s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.chains-container {
+  position: relative; 
+  width: 10px;
+  height: 10px;
+  margin: 0 auto;
+}
+
+.chain-segment {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 210px;
+  background: linear-gradient(
+    to bottom,
+    #2a2a2a 0%,
+    #4e4e4e 10%,
+    #2a2a2a 20%,
+    #4e4e4e 30%,
+    #2a2a2a 40%,
+    #4e4e4e 50%,
+    #2a2a2a 60%,
+    #4e4e4e 70%,
+    #2a2a2a 80%,
+    #4e4e4e 90%,
+    #2a2a2a 100%
+  ); 
+  background-size: 100% 18px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.7), 0 1px 1px rgba(255,255,255,0.05);
+  transform-origin: top center;
+  transform: translateX(-50%);
+}
+
+.chain-segment-left {
+  transform: translateX(-50%) rotate(-20deg);
+}
+
+.chain-segment-right {
+  transform: translateX(-50%) rotate(20deg);
+}
+
+/* Subtitle Sign Container - positions below the chains */
+.subtitle-sign-container {
+  position: relative; 
+  background-color: #2a2a2a; 
+  border: 3px solid #4a4a4a;
+  padding: 20px 35px;
+  border-radius: 10px;
+  margin-top: 195px;
+  z-index: 3; 
+  max-width: 500px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.5), inset 0 0 10px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Updated swayAnimation for more realistic pendulum motion */
+@keyframes swayAnimation {
+  0%, 100% {
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+  }
+  25% {
+    transform: rotate(-5deg) translateX(-35px) translateY(-3px);
+  }
+  75% {
+    transform: rotate(5deg) translateX(35px) translateY(-3px);
+  }
+  50% {
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+  }
+}
+
+/* Tagline, Subtitle, Button - ensure they are above */
+.tagline, .subtitle-sign-container .subtitle-text, .App-header button {
+  position: relative; 
+  z-index: 4;
+}
+
+/* Adjust subtitle-text as it's now inside the sign */
+.subtitle-text {
+  font-size: 1.7rem;
+  margin-bottom: 0;
+  max-width: 100%;
+  color: #f0f0f0; 
+  animation: fadeIn 1s ease-out 1s forwards; 
+  opacity: 0;
+  text-align: center;
+}
+
+/* --- Marquee Sign Styles --- */
+.marquee-sign-container {
+  width: 100%;
+  background: linear-gradient(to bottom, #111, #080808); 
+  border-top: 4px solid #444; 
+  border-bottom: 4px solid #333; 
+  border-left: none; 
+  border-right: none; 
+  border-radius: 0; 
+  padding: 12px 0; 
+  overflow: hidden; 
+  margin-top: 30px; 
+  margin-bottom: 30px; 
+  box-shadow: 0 8px 15px rgba(0,0,0,0.6), inset 0 2px 3px rgba(0,0,0,0.7), inset 0 -2px 3px rgba(0,0,0,0.4); 
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box; 
+  /* animation: orangePulse 2.5s infinite alternate ease-in-out; */ /* Removed orange pulse */
+}
+
+.marquee-sign-container::before,
+.marquee-sign-container::after {
+  content: '▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲'; 
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 10px; 
+  line-height: 1;
+  color: #D30000; /* Restored red for triangles */
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 0; /* Behind the marquee text */
+}
+
+.marquee-sign-container::before {
+  top: 1px; /* Positioned within top padding */
+}
+
+.marquee-sign-container::after {
+  bottom: 1px; /* Positioned within bottom padding */
+  transform: rotate(180deg); /* Flip for downward pointing */
+}
+
+.marquee-text {
+  display: inline-block; 
+  white-space: nowrap; 
+  font-size: 2.2rem; 
+  font-family: 'Arial Black', 'Impact', sans-serif; 
+  font-weight: bold; 
+  padding-left: 100%; 
+  animation: marqueeAnimation 25s linear infinite; 
+  position: relative; 
+  z-index: 1;       
+
+  /* LED Dot Effect */
+  color: transparent; 
+  background: radial-gradient(circle, #ff1a1a 1px, transparent 1.2px); /* Restored red dots */
+  background-size: 3.8px 3.8px; 
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 1px; 
+  -webkit-font-smoothing: none; /* Attempt to disable font smoothing for sharpness */
+  -moz-osx-font-smoothing: grayscale; /* Alternative for Firefox, though usually for anti-aliasing */
+}
+
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(0%); 
+  }
+  100% {
+    transform: translateX(-100%); /* Moves text by its own width to the left */
+  }
+}
+
+/* Tagline, Subtitle, Button - ensure they are above */
+.App-header button, .marquee-sign-container { /* Button and new marquee */
+  position: relative; 
+  z-index: 4; 
+}
+
+/* New container for lower page content */
+.page-lower-content {
+  position: absolute;
+  bottom: 15vh; /* Position from the bottom of the viewport */
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3; /* Ensure it's above main title and lightning */
+  width: 100%; /* Take full width for centering children */
+}
+
+/* App Logo Styles */
+.app-logo {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  width: 100px; /* Increased from 70px to 100px */
+  height: auto;
+  border-radius: 12px; /* Rounded corners */
+  z-index: 10; /* Ensure it's on top */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* New animation for orange pulsing effect on the marquee sign - TO BE REMOVED or REPURPOSED */
+/* @keyframes orangePulse {
+  0% {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.6), 
+                inset 0 2px 3px rgba(0,0,0,0.7), 
+                inset 0 -2px 3px rgba(0,0,0,0.4),
+                0 0 10px rgba(255, 140, 0, 0.3); 
+    border-top-color: #555;
+    border-bottom-color: #333;
+  }
+  100% {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7), 
+                inset 0 2px 4px rgba(0,0,0,0.8), 
+                inset 0 -2px 4px rgba(0,0,0,0.5),
+                0 0 25px rgba(255, 140, 0, 0.6); 
+    border-top-color: #ff8c00;
+    border-bottom-color: #cc7000;
+  }
+} */
+
+/* Zevs Image Styles */
+.zevs-image {
+  position: absolute;
+  top: 25vh; /* Was 15vh, NOW 25vh */
+  right: 3vw; /* Adjusted based on screenshot */
+  width: 390px; /* Reverted to original size */
+  height: auto;
+  z-index: 2; /* Above lightning, below logo/UI if any */
+  animation: zevsFloatAnimation 7s ease-in-out infinite;
+}
+
+@keyframes zevsFloatAnimation {
+  0% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+}
+
+/* New Container Style */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Features Section Styles */
+.features-section {
+  background-color: #0d0d0d;
+  padding: 80px 0;
+  margin-top: -20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #ff8c00;
+  text-align: center;
+  margin-bottom: 50px;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 140, 0, 0.2);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(255, 140, 0, 0.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: #ff8c00;
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Advantages Section Styles */
+.advantages-section {
+  background-color: #141414;
+  padding: 80px 0;
+}
+
+.advantages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.advantage-item {
+  display: flex;
+  align-items: flex-start;
+  background-color: rgba(30, 30, 30, 0.7);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.advantage-item:hover {
+  transform: scale(1.02);
+}
+
+.advantage-icon {
+  background-color: #ff8c00;
+  color: #0d0d0d;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+.advantage-content h3 {
+  color: #ff8c00;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.advantage-content p {
+  color: #e0e0e0;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Use Cases Section */
+.use-cases-section {
+  background-color: #0d0d0d;
+  padding: 80px 0;
+}
+
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.use-case-card {
+  position: relative;
+  background-color: rgba(25, 25, 25, 0.7);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.use-case-card:hover {
+  transform: translateY(-10px);
+}
+
+.use-case-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.5));
+}
+
+.use-case-card h3 {
+  color: #ff8c00;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.use-case-card p {
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/cta-background.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  color: #ff8c00;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #ff8c00;
+  color: #0d0d0d;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+}
+
+.cta-button:hover {
+  background-color: #ffa500;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 165, 0, 0.6);
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #0a0a0a;
+  padding: 60px 0 30px;
+  color: #e0e0e0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-logo span:last-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff8c00;
+}
+
+.footer-links {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.footer-column h4 {
+  color: #ff8c00;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-column li:hover {
+  color: #ff8c00;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Make the site scrollable now that we have sections */
+html, body, #root, .App {
+  overflow: visible;
+  height: auto;
+  background-color: #0d0d0d;
+}
+
+#particles-container {
+  position: fixed; /* Keep particles fixed on screen while scrolling */
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Navbar adjustments */
+  .navbar {
+    padding: 10px 15px;
+    flex-wrap: wrap;
+  }
+  
+  .navbar-links {
+    gap: 10px;
+    font-size: 13px;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .navbar-logo {
+    flex: 1;
+  }
+  
+  .lightning-icon {
+    font-size: 22px;
+  }
+  
+  .logo-text {
+    font-size: 18px;
+  }
+  
+  .navbar-action {
+    flex: 0;
+  }
+  
+  .navbar-action .try-button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  /* Main content adjustments */
+  .main-brand-title {
+    font-size: 14vw;
+  }
+  
+  .main-brand-title-container {
+    top: 30vh;
+  }
+  
+  .zevs-image {
+    width: 220px;
+    right: 3vw;
+    top: 28vh;
+  }
+  
+  /* Section adjustments */
+  .features-section, 
+  .advantages-section, 
+  .use-cases-section, 
+  .cta-section {
+    padding: 50px 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Card layouts */
+  .features-grid,
+  .use-cases-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 20px 15px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .advantage-item {
+    padding: 15px;
+  }
+  
+  .advantage-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  /* Lower page content */
+  .page-lower-content {
+    bottom: 10vh;
+  }
+  
+  .marquee-text {
+    font-size: 1.8rem;
+  }
+  
+  .App-header button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+  
+  /* CTA section */
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-content p {
+    font-size: 1rem;
+  }
+  
+  /* Footer adjustments */
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  /* Further reduce sizes and spacing */
+  .navbar {
+    padding: 8px 10px;
+  }
+  
+  .navbar-links {
+    gap: 8px;
+    font-size: 12px;
+  }
+  
+  .main-brand-title {
+    font-size: 16vw;
+  }
+  
+  .zevs-image {
+    width: 180px;
+    right: 5vw;
+    top: 30vh;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .features-section, 
+  .advantages-section, 
+  .use-cases-section, 
+  .cta-section {
+    padding: 40px 0;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  
+  .marquee-text {
+    font-size: 1.5rem;
+  }
+  
+  .page-lower-content {
+    bottom: 8vh;
+  }
+  
+  .App-header button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+}
+
+/* Fix html/body overflow for mobile scrolling */
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
 }

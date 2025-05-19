@@ -8,7 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# Не ігноруємо dist для GitHub Pages
+# dist
 dist-ssr
 *.local
 
