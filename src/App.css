@@ -1,0 +1,206 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #0d0d0d; /* Фон хедера такой же, как у body */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 20px;
+}
+
+.App-header h1 {
+  font-size: 3.8rem; /* Немного увеличим для акцента */
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #ff8c00; /* Яркий оранжевый */
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.App-header p {
+  font-size: 1.6rem; /* Немного увеличим */
+  margin-bottom: 35px;
+  max-width: 650px;
+  color: #f0f0f0; /* Белый/очень светло-серый для контраста с оранжевым */
+  animation: fadeIn 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.App-header button {
+  background-color: #ff8c00; /* Оранжевый фон */
+  color: #0d0d0d; /* Черный текст на кнопке */
+  border: none;
+  padding: 18px 35px; /* Немного увеличим кнопку */
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInScaleIn 1s ease-out 1s forwards;
+  opacity: 0;
+  transform: scale(0.5);
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Оранжевое свечение */
+}
+
+.App-header button:hover {
+  background-color: #ffa500; /* Более светлый оранжевый при наведении */
+  color: #000000;
+  transform: scale(1.08); /* Увеличим эффект при наведении */
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.7);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.floating-nfc-device {
+  position: absolute;
+  top: 28%; /* Чуть выше поднимем */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px; /* Немного увеличим устройство */
+  height: auto;
+  opacity: 0.6; /* Можно чуть уменьшить, если фон темный */
+  z-index: 1; /* ПОВЫСИЛИ: было 0, теперь плавающее устройство над молниями */
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+.App-header h1,
+.App-header p,
+.App-header button {
+  position: relative; /* Чтобы z-index сработал правильно и текст был поверх картинки */
+  z-index: 2; /* ПОВЫСИЛИ: было 1, текст и кнопка над плавающим устройством */
+}
+
+/* Анимация "плавания" */
+@keyframes floatAnimation {
+  0% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px); /* Движение вверх */
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+}
+
+/* Новые стили для контейнера SVG-молнии */
+.svg-lightning-bolt-container {
+  position: absolute;
+  opacity: 0; 
+  z-index: 0; 
+  width: 150px; /* Reverted to 150px base width */
+  height: auto;   /* Reverted to auto height */
+}
+
+.lightning-svg-itself {
+  width: 100%;  
+  height: 100%; 
+  display: block;
+  filter: 
+    brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(5000%) hue-rotate(350deg) /* Original orange color */
+    drop-shadow(0 0 5px #ff8c00) /* Neon glow 1 */
+    drop-shadow(0 0 10px #ff8c00) /* Neon glow 2 */
+    drop-shadow(0 0 15px #ff8c00); /* Neon glow 3 */
+  animation: shakeAnimation 0.15s infinite; /* Added shake animation */
+}
+
+/* Анимация lightningFlash для SVG (контролирует только opacity) */
+@keyframes lightningFlash {
+  0% { opacity: 0; }
+  4% { opacity: 0.7; } 
+  12% { opacity: 0.7; } 
+  20%, 100% { opacity: 0; }
+}
+
+/* New shake animation */
+@keyframes shakeAnimation {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  25% { transform: translate(1px, -1px) rotate(-0.2deg); }
+  50% { transform: translate(-1px, 1px) rotate(0.2deg); }
+  75% { transform: translate(-1px, -1px) rotate(-0.2deg); }
+}
