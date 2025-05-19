@@ -1,6 +1,10 @@
 import './App.css';
 import lightningSvgPath from './assets/2031288.svg'; // Імпортуємо шлях до SVG
 import { useEffect, useState, useRef } from 'react';
+import zevsImage from './assets/images/Zevs2.png'; // Імпортуємо зображення Зевса
+import useCase1Svg from './assets/images/use-case-1.svg'; // Імпортуємо зображення випадка використання 1
+import useCase2Svg from './assets/images/use-case-2.svg'; // Імпортуємо зображення випадка використання 2
+import useCase3Svg from './assets/images/use-case-3.svg'; // Імпортуємо зображення випадка використання 3
 
 function App() {
   const allLightningBolts = [
@@ -166,7 +170,7 @@ function App() {
       </nav>
 
       <header className="App-header">
-        <img src="/Zevs2.png" alt="Зевс" className="zevs-image" />
+        <img src={zevsImage} alt="Зевс" className="zevs-image" />
 
         {activeBolts.map((bolt) => {
           // Знаходимо оригінальний індекс для послідовної затримки анімації
@@ -287,17 +291,17 @@ function App() {
           <h2 className="section-title">Вирішуємо реальні проблеми</h2>
           <div className="use-cases-grid">
             <div className="use-case-card">
-              <img src="/use-case-1.svg" alt="Розряджений пристрій" className="use-case-img" />
+              <img src={useCase1Svg} alt="Розряджений пристрій" className="use-case-img" />
               <h3>Нема розетки поруч?</h3>
               <p>ChargeTap дозволяє заряджати пристрої без доступу до електромережі, коли ви в дорозі або на природі.</p>
             </div>
             <div className="use-case-card">
-              <img src="/use-case-2.svg" alt="Багато кабелів" className="use-case-img" />
+              <img src={useCase2Svg} alt="Багато кабелів" className="use-case-img" />
               <h3>Заплутались у кабелях?</h3>
               <p>ChargeTap позбавляє від необхідності носити з собою численні зарядні кабелі та адаптери.</p>
             </div>
             <div className="use-case-card">
-              <img src="/use-case-3.svg" alt="IoT пристрої" className="use-case-img" />
+              <img src={useCase3Svg} alt="IoT пристрої" className="use-case-img" />
               <h3>IoT пристрої без живлення?</h3>
               <p>ChargeTap ідеально підходить для живлення малопотужних IoT-пристроїв та датчиків.</p>
             </div>
