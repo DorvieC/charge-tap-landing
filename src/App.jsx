@@ -170,7 +170,19 @@ function App() {
       </nav>
 
       <header className="App-header">
-        <img src={zevsImage} alt="Зевс" className="zevs-image" />
+        <img 
+          src={zevsImage} 
+          alt="Зевс" 
+          style={{
+            position: 'absolute',
+            top: '25vh',
+            right: '3vw',
+            width: '390px',
+            height: 'auto',
+            zIndex: 2,
+            animation: 'zevsFloatAnimation 7s ease-in-out infinite'
+          }}
+        />
 
         {activeBolts.map((bolt) => {
           // Знаходимо оригінальний індекс для послідовної затримки анімації
